@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Chapter5CarManager.Models;
+using VehicleLibrary;
 
 namespace Chapter5CarManager.Controllers
 {
