@@ -12,6 +12,7 @@ namespace Chapter5CarManager.Controllers
 {
     public class HomeController : Controller
     {
+        private VehicleRepository _vehRepo = new VehicleRepository();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -26,7 +27,17 @@ namespace Chapter5CarManager.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            var myCar = new Car
+            {
+                Year = 2015,
+                Make = "Toyota",
+                Model = "Camry",
+                NumberOfDoors = 4
+            };
+
+            _vehRepo.Add(myCar);
+            
+            return View(myCar);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
